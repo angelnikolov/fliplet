@@ -73,9 +73,12 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
-            "styles": ["src/styles.scss"],
-            "scripts": [],
-            "assets": ["src/favicon.ico", "src/assets"]
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/assets/css/app.scss"],
+            "scripts": ["node_modules/cordova/cordova.js"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/assets/css"]
+            }
           }
         },
         "lint": {
