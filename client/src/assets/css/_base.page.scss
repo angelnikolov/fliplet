@@ -1,19 +1,5 @@
 @import 'settings.colors';
 @import 'settings.fonts';
-html {
-  font-size: 62.5%;
-  height: 100%;
-}
-
-body {
-  color: $text;
-  font-size: $fontSizeRegular;
-  font-family: $fontFamily;
-  height: 100%;
-  display: flex;
-  background: #fff;
-}
-
 .container {
   margin: 0 auto;
   flex: 1;

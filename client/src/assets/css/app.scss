@@ -1,10 +1,2 @@
+@import '~bootstrap/dist/css/bootstrap-reboot.css';
 @import '~bootstrap/dist/css/bootstrap.css';
-
-// Variables, configs, settings
-@import 'settings.colors';
-@import 'settings.fonts';
-
-// Resets, globals, generic
-@import 'generic.reset';
-// HTML unclassed elements, base
-@import 'base.page';

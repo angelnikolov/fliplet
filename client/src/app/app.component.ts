@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { finalize, map, tap } from 'rxjs/operators';
 import { RssService } from './core/services/rss.service';
 import { IFeed } from './shared/interfaces/IFeed';
 
@@ -11,9 +11,15 @@ import { IFeed } from './shared/interfaces/IFeed';
 })
 export class AppComponent implements OnInit {
   feed$: Observable<Array<IFeed>>;
+  loading = false;
+
   constructor(private rssService: RssService) {}
-  ngOnInit(): void {
-    this.feed$ = this.rssService.getFeed('http://fliplet.net/feed').pipe(
+
+  ngOnInit(): void {}
+
+  getRss(url: string) {
+    this.loading = true;
+    this.feed$ = this.rssService.getFeed(url).pipe(
       map(response => response.items),
       map(items =>
         items.map(item => ({
@@ -22,6 +28,7 @@ export class AppComponent implements OnInit {
           description: item.description
         }))
       ),
+      finalize(() => (this.loading = false)),
       tap(console.log)
     );
   }
