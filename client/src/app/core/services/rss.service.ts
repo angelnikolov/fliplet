@@ -11,6 +11,6 @@ export class RssService {
 
   getFeed(url: string) {
     const params = new HttpParams().set('rss_url', url);
-    return this.http.get<IFeed>(`${environment.RSS_FEED}`, { params });
+    return this.http.get<IFeed>(`${environment.API_URL}/rss`, { params });
   }
 }

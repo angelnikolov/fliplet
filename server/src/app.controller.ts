@@ -1,12 +1,12 @@
-import { Get, Controller } from '@nestjs/common';
-import { AppService } from './app.service';
-
+import { Controller, Get, Res } from '@nestjs/common';
+import * as path from 'path';
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor() {}
 
   @Get()
-  root(): string {
-    return this.appService.root();
+  root(@Res() response): void {
+    // the homepage will load our index.html which contains angular logic
+    response.sendFile(path.resolve('../client/dist/index.html'));
   }
 }

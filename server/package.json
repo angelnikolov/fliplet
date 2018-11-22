@@ -22,6 +22,12 @@
   "dependencies": {
     "@nestjs/common": "^5.1.0",
     "@nestjs/core": "^5.1.0",
+    "cache-manager": "^2.9.0",
+    "class-transformer": "^0.2.0",
+    "class-validator": "^0.9.1",
+    "cors": "^2.8.5",
+    "node-fetch": "^2.3.0",
+    "path": "^0.12.7",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.2.2",
     "typescript": "^3.0.1"

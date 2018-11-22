@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  RSS_FEED: 'https://api.rss2json.com/v1/api.json'
+  API_URL: 'http://localhost:3000/api'
 };
 
 /*
