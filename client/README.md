@@ -1,6 +1,7 @@
 # Server
 
 Server is running Nest framework @ http://35.234.132.3/
+The server is deployed on Google Compute engine
 
 The client is being served statically by the server via a middleware
 
