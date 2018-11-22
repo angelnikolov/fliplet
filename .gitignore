@@ -1,6 +1,9 @@
 
 # dependencies
 /client/node_modules
+/client/plugins
+/client/platforms
+
 /server/node_modules
 
 # System Files

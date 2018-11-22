@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { finalize, map, tap } from 'rxjs/operators';
 import { RssService } from './core/services/rss.service';
 import { IFeed } from './shared/interfaces/IFeed';
+declare var device;
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,29 @@ import { IFeed } from './shared/interfaces/IFeed';
 export class AppComponent implements OnInit {
   feed$: Observable<Array<IFeed>>;
   loading = false;
+  isOnline = true;
 
-  constructor(private rssService: RssService) {}
+  constructor(private rssService: RssService) {
+    alert('hey!');
+    window.addEventListener(
+      'online',
+      () => {
+        console.log('online');
+        alert('Online');
+        this.isOnline = true;
+      },
+      false
+    );
+    window.addEventListener(
+      'offline',
+      () => {
+        console.log('offline');
+        alert('Offline!');
+        this.isOnline = false;
+      },
+      false
+    );
+  }
 
   ngOnInit(): void {}
 
