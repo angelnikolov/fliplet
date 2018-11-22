@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "script": "./dist/src/main.js",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": "80"
+      }
+    }
+  ]
+}
