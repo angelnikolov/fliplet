@@ -72,14 +72,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var AppComponent = /** @class */ (function () {
     function AppComponent(rssService) {
+        var _this = this;
         this.rssService = rssService;
         this.loading = false;
         this.isOnline = true;
-        document.addEventListener('online', function () {
-            alert('online!');
+        window.addEventListener('online', function () {
+            console.log('online');
+            alert('Online');
+            _this.isOnline = true;
         }, false);
-        document.addEventListener('offline', function () {
-            alert('offline!');
+        window.addEventListener('offline', function () {
+            console.log('offline');
+            alert('Offline!');
+            _this.isOnline = false;
         }, false);
     }
     AppComponent.prototype.ngOnInit = function () { };

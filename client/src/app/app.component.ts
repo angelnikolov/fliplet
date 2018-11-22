@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
   isOnline = true;
 
   constructor(private rssService: RssService) {
-    alert('hey!');
     window.addEventListener(
       'online',
       () => {
