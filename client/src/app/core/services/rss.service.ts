@@ -10,7 +10,8 @@ export class RssService {
   constructor(private http: HttpClient) {}
 
   getFeed(url: string) {
-    const params = new HttpParams().set('rss_url', url);
+    let params = new HttpParams();
+    params = params.set('rss_url', url);
     return this.http.get<IFeed>(`${environment.API_URL}/rss`, { params });
   }
 }

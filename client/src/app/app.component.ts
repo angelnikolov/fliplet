@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { finalize, map, tap } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, finalize, map, tap } from 'rxjs/operators';
+import { AlertsService } from './core/components/alerts.service';
 import { RssService } from './core/services/rss.service';
 import { IFeed } from './shared/interfaces/IFeed';
 declare var device;
@@ -15,7 +16,10 @@ export class AppComponent implements OnInit {
   loading = false;
   isOnline = true;
 
-  constructor(private rssService: RssService) {
+  constructor(
+    private rssService: RssService,
+    private alertService: AlertsService
+  ) {
     window.addEventListener(
       'online',
       () => {
@@ -50,6 +54,10 @@ export class AppComponent implements OnInit {
           thumbnail: item.thumbnail
         }))
       ),
+      catchError(error => {
+        this.alertService.showAlert(error.message, 5000);
+        return throwError(error);
+      }),
       finalize(() => (this.loading = false)),
       tap(console.log)
     );

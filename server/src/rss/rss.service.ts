@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import * as fetch from 'node-fetch';
 import { IFeed } from './IFeed';
 @Injectable()
@@ -10,6 +10,14 @@ export class RssService {
     );
     return fetch(
       `https://api.rss2json.com/v1/api.json?rss_url=${rss_url}`,
-    ).then(response => response.json());
+    ).then(response => {
+      const resp = response.json().then(resp => {
+        if (resp.status === 'error') {
+          throw new NotFoundException(response.message);
+        }
+        return resp;
+      });
+      return resp;
+    });
   }
 }

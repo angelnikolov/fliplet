@@ -8,8 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "cordova:build:ios": "npm run build && cp -R dist www && cordova build ios",
-    "cordova:build:android": "npm run build && cp -R dist www && cordova build android",
+    "cordova:build:ios": "npm run build -- --prod && rm -rf www && cp -R dist www && cordova build ios",
+    "cordova:build:android": "npm run build -- --prod && rm -rf www &&  cp -R dist www && cordova build android",
     "cordova:run:android": "cordova run android",
     "cordova:run:ios": "cordova run ios --buildFlag=\"-UseModernBuildSystem=0\""
   },
