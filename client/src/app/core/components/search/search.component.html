@@ -1,8 +1,18 @@
-<form class="form" [formGroup]="searchForm" (ngSubmit)="submit()">
+<form
+  class="form"
+  [formGroup]="searchForm"
+  (ngSubmit)="submit()"
+  ngNativeValidate
+>
   <div class="form-group">
     <input
       type="text"
       formControlName="searchTerm"
+      required
+      [class.is-invalid]="
+        searchForm.controls.searchTerm.errors &&
+        searchForm.controls.searchTerm.dirty
+      "
       class="form-control"
       placeholder="Enter RSS URL"
     />

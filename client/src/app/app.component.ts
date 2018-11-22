@@ -25,7 +25,8 @@ export class AppComponent implements OnInit {
         items.map(item => ({
           link: item.link,
           title: item.title,
-          description: item.description
+          description: item.description,
+          thumbnail: item.thumbnail
         }))
       ),
       finalize(() => (this.loading = false)),

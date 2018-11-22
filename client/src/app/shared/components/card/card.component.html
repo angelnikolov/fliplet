@@ -1,0 +1,15 @@
+<div class="card">
+  <img
+    class="card-img-top"
+    *ngIf="feedItem.thumbnail"
+    [src]="feedItem.thumbnail"
+    [alt]="feedItem.title"
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{ feedItem.title }}</h5>
+    <p class="card-text" [innerHTML]="feedItem.description"></p>
+    <app-button [link]="feedItem.link">Go somewhere</app-button>
+  </div>
+</div>
+
+<hr />
